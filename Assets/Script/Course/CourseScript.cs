@@ -18,7 +18,11 @@ public class CourseScript : MonoBehaviour {
 	float WaitTime = 0;
 
 	bool Moveing = true;
-	public bool MoveFlag { get{ return Moveing; } }
+	public bool MoveFlag {
+		get {
+			return Moveing;
+		}
+	}
 	public bool MoveingTime = false;
 	public bool HealFlag = false;
 	public bool HealTime = false;
@@ -26,34 +30,34 @@ public class CourseScript : MonoBehaviour {
 	public bool AttackTime = false;
 	public bool EndFlag = false;
 
-	void Start () {
+	void Start( ) {
 		this.Player = GameObject.FindWithTag( "Player" );
-		Player.GetComponent<PlayerController>().CourseFlag = true;
-		dialpgue_s = FindObjectOfType<DialogueScript>();
-		dialpgue_s.StartDialogue (dialogue);
+		Player.GetComponent<PlayerController>( ).CourseFlag = true;
+		dialpgue_s = FindObjectOfType<DialogueScript>( );
+		dialpgue_s.StartDialogue( dialogue );
 	}
 
-	void Update ( ) {
+	void Update( ) {
 
 		if ( MoveingTime == true ) {
 			MoveTimeUP( );
 		}
 
-		if( HealTime == true ) {
-			HealHpTimeUP();
+		if ( HealTime == true ) {
+			HealHpTimeUP( );
 		}
 
 		if ( AttackTime == true ) {
-			EnemyTimeUP();
+			EnemyTimeUP( );
 		}
 
 	}
 
 	//MOVEチュートリアル
-	void MoveCourse( ) {    
+	void MoveCourse( ) {
 		HealFlag = true;
 		Moveing = false;
-		dialpgue_s.StartDialogue(dialogue);
+		dialpgue_s.StartDialogue( dialogue );
 		return;
 	}
 
@@ -61,11 +65,11 @@ public class CourseScript : MonoBehaviour {
 
 		WaitTime += Time.deltaTime;
 
-		if( WaitTime >= MovingTime ) {
-			MoveCourse();
+		if ( WaitTime >= MovingTime ) {
+			MoveCourse( );
 			WaitTime = 0;
 			MoveingTime = false;
-			Player.transform.position = new Vector2 ( 0, -3.0f );
+			Player.transform.position = new Vector2( 0, -3.0f );
 			Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
 		}
 
@@ -76,14 +80,14 @@ public class CourseScript : MonoBehaviour {
 		HealFlag = false;
 		AttackFlag = true;
 		HealTime = false;
-		dialpgue_s.StartDialogue (dialogue);
-		Player.transform.position = new Vector2 ( 0, -3.0f );
+		dialpgue_s.StartDialogue( dialogue );
+		Player.transform.position = new Vector2( 0, -3.0f );
 		return;
 	}
 
 	void HealHpTimeUP( ) {
-		if ( Player.GetComponent<PlayerController>().Hp >= HealHp ) {
-			HpCourse();
+		if ( Player.GetComponent<PlayerController>( ).Hp >= HealHp ) {
+			HpCourse( );
 		}
 	}
 	//敵チュートリアル
@@ -91,14 +95,14 @@ public class CourseScript : MonoBehaviour {
 		EndFlag = true;
 		AttackFlag = false;
 		AttackTime = false;
-		dialpgue_s.StartDialogue(dialogue);
-		Player.transform.position = new Vector2 ( 0, -3.0f );
+		dialpgue_s.StartDialogue( dialogue );
+		Player.transform.position = new Vector2( 0, -3.0f );
 		return;
 	}
 
-	void EnemyTimeUP() {
-		if (Player.GetComponent<PlayerController>().CourseFlag == false) {
-			EnemyCourse();
+	void EnemyTimeUP( ) {
+		if ( Player.GetComponent<PlayerController>( ).CourseFlag == false ) {
+			EnemyCourse( );
 		}
 	}
 }

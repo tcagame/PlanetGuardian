@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class loadObjects : MonoBehaviour {
 
-	[SerializeField] private string loadName = null;
+	[SerializeField]
+	private string loadName = null;
 
 	// Use this for initialization
-	void Start () {
-		if (loadName.Length > 0) {
+	void Start( ) {
+		if ( loadName.Length > 0 ) {
 			DeserializedLevelsLoader load = new DeserializedLevelsLoader( );
-			load.generateItems (loadName);
+			load.generateItems( loadName );
 		}
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update( ) {
+
 	}
 }

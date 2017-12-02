@@ -11,11 +11,15 @@ public class sword : MonoBehaviour {
 		STATE_ATTACK,
 		STATE_DETH,
 	}
-	
-	[SerializeField] private GameObject _item = null;
-	[SerializeField] private double _drop_rate = 0.0;
-	[SerializeField] private int POWER = 3;
-	[SerializeField] private float MOVE_SPEED = 4.5f;
+
+	[SerializeField]
+	private GameObject _item = null;
+	[SerializeField]
+	private double _drop_rate = 0.0;
+	[SerializeField]
+	private int POWER = 3;
+	[SerializeField]
+	private float MOVE_SPEED = 4.5f;
 	private sound _sound = null;
 	private float ATTCK_RANGE = 4;
 	private float MOVE_TIME = 2;
@@ -23,41 +27,41 @@ public class sword : MonoBehaviour {
 	private float _attack_count;
 	private STATE _state;
 	private Rigidbody2D _rb;
-    private GameObject _player = null;
+	private GameObject _player = null;
 	private Animator _anim = null;
-    private Vector2 _skipped_dir = Vector2.zero;
-    
-    //private AudioSource SE_e_nearAttack;
+	private Vector2 _skipped_dir = Vector2.zero;
 
-    // Use this for initialization
-    void Start () {
-		_rb = GetComponent<Rigidbody2D> ( );
-        _player = GameObject.Find( "player" );
+	//private AudioSource SE_e_nearAttack;
+
+	// Use this for initialization
+	void Start( ) {
+		_rb = GetComponent<Rigidbody2D>( );
+		_player = GameObject.Find( "player" );
 		_move_count = 0;
 		_attack_count = 0;
 		_state = STATE.STATE_MOVE;
-		_anim = GetComponent<Animator> ();
-		_sound = GameObject.Find ("sound").GetComponent< sound > ();
-        //SE_e_nearAttack = gameObject.GetComponent<AudioSource>();
-    }
-	
+		_anim = GetComponent<Animator>( );
+		_sound = GameObject.Find( "sound" ).GetComponent<sound>( );
+		//SE_e_nearAttack = gameObject.GetComponent<AudioSource>();
+	}
+
 	// Update is called once per frame
-	void Update () {
+	void Update( ) {
 		if ( !_player ) {
 			return;
 		}
-		
+
 		updateState( );
 		switch ( _state ) {
-			case STATE.STATE_MOVE:
-				move( );
-				break;
-			case STATE.STATE_ATTACK:
-				attack( );
-				break;
-			case STATE.STATE_DETH:
-				dead ();
-        	    break;
+		case STATE.STATE_MOVE:
+			move( );
+			break;
+		case STATE.STATE_ATTACK:
+			attack( );
+			break;
+		case STATE.STATE_DETH:
+			dead( );
+			break;
 		}
 	}
 
@@ -74,7 +78,7 @@ public class sword : MonoBehaviour {
 		}
 
 		if ( _state == STATE.STATE_ATTACK &&
-			 _attack_count > _anim.GetCurrentAnimatorStateInfo(0).length ) {
+			 _attack_count > _anim.GetCurrentAnimatorStateInfo( 0 ).length ) {
 			_state = STATE.STATE_MOVE;
 			_anim.SetBool( "attack", false );
 			_attack_count = 0.0f;
@@ -92,17 +96,17 @@ public class sword : MonoBehaviour {
 	}
 
 	void attack( ) {
-		_sound.playSE ("sword_attack");
+		_sound.playSE( "sword_attack" );
 		//SE_e_nearAttack.Play();
 
-        _attack_count += Time.deltaTime;
+		_attack_count += Time.deltaTime;
 		_rb.velocity = Vector2.zero;
-		
+
 		if ( _state == STATE.STATE_ATTACK &&
-			 _attack_count > _anim.GetCurrentAnimatorStateInfo(0).length ) {
+			 _attack_count > _anim.GetCurrentAnimatorStateInfo( 0 ).length ) {
 			Vector2 distance = _player.transform.position - transform.position;
 			if ( distance.magnitude < ATTCK_RANGE ) {
-				_player.GetComponent<plyaer> ().damage( POWER );
+				_player.GetComponent<player>( ).damage( POWER );
 			}
 			_state = STATE.STATE_MOVE;
 			_anim.SetBool( "attack", false );
@@ -117,39 +121,41 @@ public class sword : MonoBehaviour {
 	void killed( GameObject player ) {
 		_state = STATE.STATE_DETH;
 		_anim.SetBool( "dead", true );
-		GetComponent<Collider2D> ( ).isTrigger = true;
-		plyaer script = player.GetComponent< plyaer > ();
-		if ( script ) { script.attack( ); }
+		GetComponent<Collider2D>( ).isTrigger = true;
+		player script = player.GetComponent<player>( );
+		if ( script ) {
+			script.attack( );
+		}
 		double random = Random.Range( 0, 100 ) / 100.0;
 		if ( _item && random < _drop_rate ) {
-			Instantiate( _item, transform.position + new Vector3(2, 2, 0), Quaternion.identity );
+			Instantiate( _item, transform.position + new Vector3( 2, 2, 0 ), Quaternion.identity );
 		}
 		Destroy( gameObject, 2.0f );
-        _skipped_dir = transform.position - _player.transform.position;
-		GameObject boss = GameObject.Find ("BossPop");
+		_skipped_dir = transform.position - _player.transform.position;
+		GameObject boss = GameObject.Find( "BossPop" );
 		if ( boss ) {
-			boss.gameObject.GetComponent<popBoss> ().hate ();
-    	}
+			boss.gameObject.GetComponent<popBoss>( ).hate( );
+		}
 	}
 
-    void OnCollisionEnter2D( Collision2D col ) {
+	void OnCollisionEnter2D( Collision2D col ) {
 		if ( col.collider.tag == "wall" ) {
-			GetComponent<Collider2D> ( ).isTrigger = true;
+			GetComponent<Collider2D>( ).isTrigger = true;
 		}
-		if (col.collider.tag == "Player") {
-			killed ( col.gameObject );
+		if ( col.collider.tag == "Player" ) {
+			killed( col.gameObject );
 		}
 	}
 
 	void OnTriggerEnter2D( Collider2D col ) {
-		if (col.tag == "Player") {
-			killed ( col.gameObject );
+		if ( col.tag == "Player" ) {
+			killed( col.gameObject );
 		}
 	}
 
 	void OnCollisionStay2D( Collision2D col ) {
 		if ( col.collider.tag == "wall" ) {
-			GetComponent<Collider2D> ( ).isTrigger = true;
+			GetComponent<Collider2D>( ).isTrigger = true;
 		}
 	}
 }

@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class selectStage : MonoBehaviour {
 
-	[SerializeField] bool stage1 = false;
-	[SerializeField] bool stage2 = false;
+	[SerializeField]
+	bool stage1 = false;
+	[SerializeField]
+	bool stage2 = false;
 
-	void Start () {
-		
+	void Start( ) {
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update( ) {
+
 	}
 
 	void OnMouseDown( ) {
-		GameObject.Find ("sound").GetComponent<sound> ().playSE ("tap");
-		nextScene next = GameObject.Find ("SceneMgr").GetComponent<nextScene> ();
-		if (stage1) {
-			next.setStage1 ();
+		//GameObject.Find ("Sound").GetComponent<sound> ().playSE ("tap");
+		nextScene next = GameObject.Find( "Master" ).GetComponent<nextScene>( );
+		if ( stage1 ) {
+			next.setStage1( );
 		}
 
-		if (stage2) {
-			next.setStage2 ();
+		if ( stage2 ) {
+			next.setStage2( );
 		}
 	}
 }

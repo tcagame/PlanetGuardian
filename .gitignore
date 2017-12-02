@@ -1,0 +1,4 @@
+Library/
+*.meta
+*.csproj
+*.sln

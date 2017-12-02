@@ -69,7 +69,7 @@ public class boss : MonoBehaviour {
 		if ( _attack_time > GetComponent< Animator > ().GetCurrentAnimatorStateInfo(0).length * ( _attack_count + 1 ) ) {
 			Vector2 diff = _player.transform.position - transform.position;
 			if ( diff.magnitude < ATTACK_RANGE ) {
-				_player.GetComponent< plyaer > ().damage( POWER );
+				_player.GetComponent< player > ().damage( POWER );
 			}
 			_attack_count++;
 		}
@@ -84,7 +84,7 @@ public class boss : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col ) {
 		if (col.collider.tag == "Player") {
 			_hp--;
-			col.collider.GetComponent< plyaer > ().attack ();
+			col.collider.GetComponent< player > ().attack ();
 			if ( _hp <= 0 ) {
 				cleanEnemy ();
 				_action = ACTION.DEAD;

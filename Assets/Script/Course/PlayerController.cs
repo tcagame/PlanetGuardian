@@ -5,75 +5,75 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public Vector2 Speed = new Vector2( 0.05f, 0.05f );
-    public GameObject HpBar; //HPGUI Controller
+	public Vector2 Speed = new Vector2( 0.05f, 0.05f );
+	public GameObject HpBar; //HPGUI Controller
 
-    public float MaxHP;
-    public float Hp;
+	public float MaxHP;
+	public float Hp;
 
 	public bool CourseFlag = true;
 
-    void Start( ) {
+	void Start( ) {
 
 		this.HpBar = GameObject.FindGameObjectWithTag( "HP" );
 
-        Time.timeScale = 1f;
+		Time.timeScale = 1f;
 
 
-    }
-    
-    void Update( ) {
+	}
 
-        Hp -= Time.deltaTime;
+	void Update( ) {
 
-        Move( );
-        HpBarController( );
-    }
+		Hp -= Time.deltaTime;
 
-    void Move( ) {
+		Move( );
+		HpBarController( );
+	}
 
-        Vector2 Position = transform.position;
+	void Move( ) {
 
-        if (Input.GetKey( KeyCode.LeftArrow ) ) {
-            Position.x -= Speed.x;
-        }
-        if (Input.GetKey( KeyCode.RightArrow ) ) {
-            Position.x += Speed.x;
-        }
-        if ( Input.GetKey( KeyCode.UpArrow ) ) {
-            Position.y += Speed.y;
-        }
-        if ( Input.GetKey( KeyCode.DownArrow ) ) {
-            Position.y -= Speed.y;
-        }
+		Vector2 Position = transform.position;
 
-        transform.position = Position;
-    }
+		if ( Input.GetKey( KeyCode.LeftArrow ) ) {
+			Position.x -= Speed.x;
+		}
+		if ( Input.GetKey( KeyCode.RightArrow ) ) {
+			Position.x += Speed.x;
+		}
+		if ( Input.GetKey( KeyCode.UpArrow ) ) {
+			Position.y += Speed.y;
+		}
+		if ( Input.GetKey( KeyCode.DownArrow ) ) {
+			Position.y -= Speed.y;
+		}
 
-    void OnCollisionEnter2D( Collision2D collision ) {
+		transform.position = Position;
+	}
 
-        if ( collision.gameObject.CompareTag( "enemy" ) ) {
-            collision.collider.enabled = false;
+	void OnCollisionEnter2D( Collision2D collision ) {
+
+		if ( collision.gameObject.CompareTag( "enemy" ) ) {
+			collision.collider.enabled = false;
 			CourseFlag = false;
-        }
+		}
 
-    }
+	}
 
 	void HpBarController( ) {
-		
 
-        HpBar.transform.localPosition = new Vector3( ( -500 + 500 * ( Hp / MaxHP ) ), 0.0f, 0.0f );
+
+		HpBar.transform.localPosition = new Vector3( ( -500 + 500 * ( Hp / MaxHP ) ), 0.0f, 0.0f );
 
 		if ( Hp >= MaxHP ) {
 
 			Hp = MaxHP;
 
-        }
+		}
 
-        if ( Hp <= 0f ) {
-            Speed = new Vector2( 0, 0 );
-            Time.timeScale = 0f;
-        }
-    }
+		if ( Hp <= 0f ) {
+			Speed = new Vector2( 0, 0 );
+			Time.timeScale = 0f;
+		}
+	}
 
 }
