@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Levels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Level>
+    <Item prefab="BossPop" x="0.03" y="12.58" />
+    <Item prefab="shooter" x="-0.32" y="6.5" />
+    <Item prefab="sword" x="9.4" y="11.6" />
+    <Item prefab="sword (1)" x="-10.2" y="6.9" />
+    <Item prefab="swordPop" x="-17.11" y="6.4" />
+    <Item prefab="swordPop1" x="0.3" y="14.6" />
+    <Item prefab="swordPop2" x="17.1" y="-8.9" />
+    <Item prefab="swordPop3" x="0.8" y="-23.9" />
+    <Item prefab="shooterPop" x="-13.7" y="7.9" />
+    <Item prefab="shooterPop1" x="14.1" y="5.6" />
+    <Item prefab="trap (1)" x="-5.1" y="10.1" />
+    <Item prefab="recovery_point (1)" x="-8.92" y="-12.25" />
+  </Level>
+</Levels>

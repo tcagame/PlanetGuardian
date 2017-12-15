@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3349378b4862ffc4a978a08b915852fd
+timeCreated: 1505283955
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - SE_e_nearAttack: {fileID: 8300000, guid: c30f0337cf3eb4974b15cefbb7e1206b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

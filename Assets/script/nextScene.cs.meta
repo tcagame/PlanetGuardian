@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b9e2d90330dfd40eb950c03562838546
+timeCreated: 1505317379
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - _callibration: {instanceID: 0}
+  - _game_menu: {instanceID: 0}
+  - _sound_menu: {instanceID: 0}
+  - SE_system: {fileID: 1464074346440584, guid: aabc31907db982d4abeb0e35ffba0deb,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
