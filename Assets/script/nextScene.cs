@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 public class nextScene : MonoBehaviour {
 
 	[SerializeField] private GameObject _callibration = null;
-	[SerializeField] private GameObject _game_menu = null;
-	[SerializeField] private GameObject _sound_menu = null;
-	[SerializeField] private GameObject _count_down = null;
 
 	private string stage_name;
 	private bool load_stage = false;
@@ -85,35 +82,5 @@ public class nextScene : MonoBehaviour {
 	public void setStage2( ) {
 		stage_name = "stage2";
 		load_stage = true;
-	}
-
-	public void onGameMenu( ) {
-		if (!_count_down) {
-			Time.timeScale = 0;
-			_game_menu.SetActive (true);
-		}
-	}
-
-	public void closeMenu( ) {
-		Time.timeScale = 1;
-		_game_menu.SetActive( false );
-		_sound_menu.SetActive( false );
-	}
-
-	public void onSoundMenu( ) {
-		if (!_count_down) {
-			_game_menu.SetActive (false);
-			_sound_menu.SetActive (true);
-		}
-	}
-
-	public void returnGameMenu( ) {
-		_game_menu.SetActive( true );
-		_sound_menu.SetActive( false );
-	}
-
-	public void giveUp( ) {
-		Time.timeScale = 1;
-		SceneManager.LoadScene("title");
 	}
 }

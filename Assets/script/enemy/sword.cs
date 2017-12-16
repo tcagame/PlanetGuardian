@@ -43,7 +43,7 @@ public class sword : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( !_player ) {
+		if ( !_player || _player.GetComponent<plyaer>().isDead()) {
 			return;
 		}
 		

@@ -21,7 +21,6 @@ public class shooter : MonoBehaviour {
 	private STAET _state;
     private GameObject _player = null;
     private Rigidbody2D _rb;
-	private bool _attack = false;
 	private Animator _anim = null;
     private Vector2 _skipped_dir = Vector2.zero;
     
@@ -33,7 +32,6 @@ public class shooter : MonoBehaviour {
 		_state = STAET.STATE_MOVE;
         _player = GameObject.Find( "player" );
         _rb = GetComponent<Rigidbody2D> ();
-		_attack = false;
 		_anim = GetComponent<Animator> ();
 		_sound = GameObject.Find ("sound").GetComponent<sound>();
         //SE_e_shooterAttack = gameObject.GetComponent<AudioSource>();
@@ -41,7 +39,7 @@ public class shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( !_player ) {
+		if ( !_player || _player.GetComponent<plyaer>().isDead()) {
 			return;
 		}
 
@@ -56,7 +54,6 @@ public class shooter : MonoBehaviour {
 				dead ();
                 break;
 		}
-		_attack = false;
 	}
 
 	void move( ) {
@@ -71,9 +68,6 @@ public class shooter : MonoBehaviour {
 		    (0 >= diff.x & diff.x >= -ATTACK_RANGE_X)) &    
 		    ((0 <= diff.y & diff.y <= ATTACK_RANGE_Y) |
 		    (0 >= diff.y & diff.y >= -ATTACK_RANGE_Y))) {
-			if ( _state != STAET.STATE_SHOT ) {
-				_anim.SetBool( "wait", true );
-			}
 			_state = STAET.STATE_SHOT;
         } else {
 			_rb.velocity = diff.normalized * MOVE_SPEED;
@@ -92,7 +86,6 @@ public class shooter : MonoBehaviour {
 		Vector3 diff = _player.transform.position - transform.position;
 		_rb.velocity = diff.normalized * 0;
 
-		_attack = true;
         _shot_time += Time.deltaTime;
 
         if ( _shot_time >= 1 && !_shot )
@@ -105,14 +98,13 @@ public class shooter : MonoBehaviour {
 
         if ( _shot_time >= 2 ) {
 			_state = STAET.STATE_MOVE;
-			_anim.SetBool( "walk", true );
+			//_anim.SetBool( "walk", true );
             _shot_time = 0;
 			_shot = false;
         }
 	}
     void shooting2()
     {
-        _attack = true;
         _shot_time += Time.deltaTime;
 
         if (_shot_time >= 1 && !_shot)
@@ -172,10 +164,6 @@ public class shooter : MonoBehaviour {
 	void OnTriggerStay2D( Collider2D col ) {
 		if ( col.tag == "wall" ) {
 			GetComponent<Collider2D> ( ).isTrigger = true;
-		}
-
-		if (col.tag == "field") {
-			_attack = true;
 		}
 	}
 }

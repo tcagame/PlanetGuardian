@@ -10,7 +10,6 @@ public class plyaer : MonoBehaviour {
 	[SerializeField] private double MIN_SPEED_RATIO = 0.35;
 	[SerializeField] private int MAX_HP = 150;
 	[SerializeField] private Slider HpBar = null; //HPGUI Controller
-	[SerializeField] private Text _text = null; // debug message text
 
 	[SerializeField] private GameObject _damage = null;
 	[SerializeField] private GameObject _hit = null;
@@ -28,27 +27,17 @@ public class plyaer : MonoBehaviour {
 		_rb = GetComponent<Rigidbody2D> ();
 		_hp = MAX_HP;
 		_time = 0.0f;
-		_text.text = "";
 		HpBar.maxValue = MAX_HP;
 		_offset = GameObject.Find ("callibration");
 		if (_offset) {
 			_move_key = false;
 		}
 		Input.gyro.enabled = true;
-
-//        AudioSource[] audioSourses = GetComponents<AudioSource>();
-//        SE_PlayerSpin = audioSourses[0];
-  //      SE_PlayerDamage = audioSourses[1];
-    //    SE_PlayerAttack = audioSourses[2];
-      //  SE_PlayerRecovery = audioSourses[3];
-        //SE_PlayerGameover = audioSourses[4];
-
     }
 
     // Update is called once per frame
     void Update () {
 		if (Time.timeScale == 0) {
-			//SE_PlayerSpin.Play ();
 			_sound.GetComponent<sound> ().playSE ("player_spin");
 		}
 		updateMove ();
@@ -125,14 +114,12 @@ public class plyaer : MonoBehaviour {
 		}
 		HpBar.value = _hp;
 		if (_hp <= 0) {
-			Destroy( gameObject, 5f );
-            //SE_PlayerGameover.Play();
+			Destroy( gameObject, 3f );
 			_sound.GetComponent<sound> ().playSE( "gameover" );
 		}
 	}
 		
 	public void damage( int damage ) {
-        //SE_PlayerDamage.Play();
 		_sound.GetComponent<sound> ().playSE( "player_damage" );
 
 		_hp -= damage;
@@ -141,7 +128,6 @@ public class plyaer : MonoBehaviour {
 	}
 
 	public void recovery( int recovery ) {
-        //SE_PlayerRecovery.Play();
 		_sound.GetComponent<sound> ().playSE( "recovery" );
 		_hp += recovery;
         if ( _hp > MAX_HP ) {
@@ -151,7 +137,6 @@ public class plyaer : MonoBehaviour {
 	}
 
 	public void attack( ) {
-        //SE_PlayerAttack.Play();
 		_sound.GetComponent<sound> ().playSE( "player_attack" );
 
 		GameObject.Find( "combo" ).GetComponent<combo> ().addCombo();
@@ -162,15 +147,15 @@ public class plyaer : MonoBehaviour {
 		obj.GetComponent< deleteEffect > ().setSearchObject( gameObject );
 	}
 
-    public void Spin_Stop()
-    {
+    public void Spin_Stop() {
 		_sound.GetComponent<sound> ().stopSE( "player_spin" );
-        //SE_PlayerSpin.Stop();
     }
 
-    public void Spin_Play()
-    {
-       // SE_PlayerSpin.Play();
+    public void Spin_Play() {
 		_sound.GetComponent<sound> ().playSE( "player_spin" );
     }
+
+	public bool isDead( ) {
+		return _hp <= 0;
+	}
 }
