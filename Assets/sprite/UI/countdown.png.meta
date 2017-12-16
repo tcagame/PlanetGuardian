@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 696cbd87103a34c0292d9ffba40c5461
-timeCreated: 1509164498
+timeCreated: 1513401412
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -83,10 +83,10 @@ TextureImporter:
       name: countdown_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 834
-        width: 156
-        height: 248
+        x: 88
+        y: 525
+        width: 289
+        height: 421
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,10 +96,10 @@ TextureImporter:
       name: countdown_1
       rect:
         serializedVersion: 2
-        x: 323
-        y: 834
-        width: 85
-        height: 248
+        x: 456
+        y: 533
+        width: 83
+        height: 407
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,10 +109,10 @@ TextureImporter:
       name: countdown_2
       rect:
         serializedVersion: 2
-        x: 513
-        y: 834
-        width: 154
-        height: 248
+        x: 629
+        y: 525
+        width: 290
+        height: 421
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +122,10 @@ TextureImporter:
       name: countdown_3
       rect:
         serializedVersion: 2
-        x: 772
-        y: 834
-        width: 154
-        height: 248
+        x: 999
+        y: 524
+        width: 282
+        height: 424
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,10 +135,10 @@ TextureImporter:
       name: countdown_4
       rect:
         serializedVersion: 2
-        x: 1030
-        y: 834
-        width: 160
-        height: 248
+        x: 1357
+        y: 531
+        width: 291
+        height: 409
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,10 +148,10 @@ TextureImporter:
       name: countdown_5
       rect:
         serializedVersion: 2
-        x: 82
-        y: 475
-        width: 154
-        height: 248
+        x: 53
+        y: 40
+        width: 291
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +161,10 @@ TextureImporter:
       name: countdown_6
       rect:
         serializedVersion: 2
-        x: 340
-        y: 475
-        width: 154
-        height: 248
+        x: 411
+        y: 40
+        width: 290
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: countdown_7
       rect:
         serializedVersion: 2
-        x: 549
-        y: 475
-        width: 154
-        height: 248
+        x: 711
+        y: 50
+        width: 282
+        height: 414
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: countdown_8
       rect:
         serializedVersion: 2
-        x: 808
-        y: 475
-        width: 154
-        height: 248
+        x: 1042
+        y: 40
+        width: 291
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: countdown_9
       rect:
         serializedVersion: 2
-        x: 1067
-        y: 475
-        width: 154
-        height: 248
+        x: 1399
+        y: 40
+        width: 291
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 19b4a7e86577c7746bc2ed5719e2b848
-timeCreated: 1503127888
-licenseType: Free
+timeCreated: 1513401975
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: combo_0
@@ -15,6 +15,16 @@ TextureImporter:
     21300016: combo_8
     21300018: combo_9
     21300020: combo_10
+    21300022: combo_11
+    21300024: combo_12
+    21300026: combo_13
+    21300028: combo_14
+    21300030: combo_15
+    21300032: combo_16
+    21300034: combo_17
+    21300036: combo_18
+    21300038: combo_19
+    21300040: combo_20
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -84,10 +94,10 @@ TextureImporter:
       name: combo_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 1300
-        width: 290
-        height: 423
+        x: 78
+        y: 1915
+        width: 373
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -97,10 +107,10 @@ TextureImporter:
       name: combo_1
       rect:
         serializedVersion: 2
-        x: 457
-        y: 1308
-        width: 83
-        height: 409
+        x: 578
+        y: 1915
+        width: 248
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,10 +120,10 @@ TextureImporter:
       name: combo_2
       rect:
         serializedVersion: 2
-        x: 629
-        y: 1301
-        width: 291
-        height: 422
+        x: 899
+        y: 1915
+        width: 374
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,10 +133,10 @@ TextureImporter:
       name: combo_3
       rect:
         serializedVersion: 2
-        x: 999
-        y: 1299
-        width: 282
-        height: 424
+        x: 1344
+        y: 1915
+        width: 373
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,10 +146,10 @@ TextureImporter:
       name: combo_4
       rect:
         serializedVersion: 2
-        x: 1357
-        y: 1307
-        width: 290
-        height: 409
+        x: 1788
+        y: 1915
+        width: 374
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +159,10 @@ TextureImporter:
       name: combo_5
       rect:
         serializedVersion: 2
-        x: 85
-        y: 727
-        width: 292
-        height: 425
+        x: 78
+        y: 1248
+        width: 373
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +172,10 @@ TextureImporter:
       name: combo_6
       rect:
         serializedVersion: 2
-        x: 444
-        y: 727
-        width: 291
-        height: 425
+        x: 516
+        y: 1248
+        width: 373
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +185,10 @@ TextureImporter:
       name: combo_7
       rect:
         serializedVersion: 2
-        x: 744
-        y: 738
-        width: 282
-        height: 415
+        x: 899
+        y: 1248
+        width: 374
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +198,10 @@ TextureImporter:
       name: combo_8
       rect:
         serializedVersion: 2
-        x: 1075
-        y: 727
-        width: 291
-        height: 425
+        x: 1344
+        y: 1248
+        width: 373
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +211,10 @@ TextureImporter:
       name: combo_9
       rect:
         serializedVersion: 2
-        x: 1432
-        y: 727
-        width: 292
-        height: 425
+        x: 1788
+        y: 1248
+        width: 374
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +224,127 @@ TextureImporter:
       name: combo_10
       rect:
         serializedVersion: 2
-        x: 132
-        y: 75
-        width: 736
-        height: 426
+        x: 78
+        y: 590
+        width: 1920
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_11
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 35
+        width: 1260
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_12
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 0
+        width: 375
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_13
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 0
+        width: 374
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_14
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 0
+        width: 375
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_15
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 0
+        width: 375
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_16
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 0
+        width: 248
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_17
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 0
+        width: 374
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_18
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 0
+        width: 122
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: combo_19
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 0
+        width: 122
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
