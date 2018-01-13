@@ -144,7 +144,7 @@ public class DialogueScript : MonoBehaviour {
 
 		if( Endsentences.Count == 0 && course_Dialogue.EndFlag == true) {
 			//終わった、マップに移動します
-			SceneManager.LoadScene("Map");
+			SceneManager.LoadScene("select");
 			EndDialogue();
 			return;
 		}
