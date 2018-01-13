@@ -7,7 +7,7 @@ public class CourseScript : MonoBehaviour {
 	//最大移動時間
 	[SerializeField]
 	float MovingTime = 2.0f;
-
+	[SerializeField]
 	float HealHp = 70.0f;
 
 	public Dialogue dialogue;
@@ -28,7 +28,7 @@ public class CourseScript : MonoBehaviour {
 
 	void Start () {
 		this.Player = GameObject.FindWithTag( "Player" );
-		Player.GetComponent<PlayerController>().CourseFlag = true;
+		Player.GetComponent<plyaer>().CourseFlag = true;
 		dialpgue_s = FindObjectOfType<DialogueScript>();
 		dialpgue_s.StartDialogue (dialogue);
 	}
@@ -65,8 +65,8 @@ public class CourseScript : MonoBehaviour {
 			MoveCourse();
 			WaitTime = 0;
 			MoveingTime = false;
-			Player.transform.position = new Vector2 ( 0, -3.0f );
-			Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
+			Player.transform.position = new Vector2 ( -0.09f, -2f );
+			Player.GetComponent<plyaer>( ).stop();
 		}
 
 	}
@@ -77,12 +77,13 @@ public class CourseScript : MonoBehaviour {
 		AttackFlag = true;
 		HealTime = false;
 		dialpgue_s.StartDialogue (dialogue);
-		Player.transform.position = new Vector2 ( 0, -3.0f );
+		Player.transform.position = new Vector2 ( -0.09f, -2f );
+		Debug.Log("HP Start");
 		return;
 	}
 
 	void HealHpTimeUP( ) {
-		if ( Player.GetComponent<PlayerController>().Hp >= HealHp ) {
+		if ( Player.GetComponent<plyaer>().MAXHP >= HealHp ) {
 			HpCourse();
 		}
 	}
@@ -92,12 +93,12 @@ public class CourseScript : MonoBehaviour {
 		AttackFlag = false;
 		AttackTime = false;
 		dialpgue_s.StartDialogue(dialogue);
-		Player.transform.position = new Vector2 ( 0, -3.0f );
+		Player.transform.position = new Vector2 ( -0.09f, -2f );
 		return;
 	}
 
 	void EnemyTimeUP() {
-		if (Player.GetComponent<PlayerController>().CourseFlag == false) {
+		if (Player.GetComponent<plyaer>().CourseFlag == false) {
 			EnemyCourse();
 		}
 	}

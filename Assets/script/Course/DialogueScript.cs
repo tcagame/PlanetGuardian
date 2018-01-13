@@ -66,7 +66,7 @@ public class DialogueScript : MonoBehaviour {
 		course_Dialogue = GetComponent<CourseScript>();
 		CourseEnemyPosition = new Vector2 ( 0, 3.0f );
 		CourseTrapPosition = new Vector2 ( 0, 0.1f );
-		CourseHPItemPosition = new Vector2 ( 2, 1.5f );
+		CourseHPItemPosition = new Vector2 ( 2.3f, 2.22f );
 
 		EnemyTarget.SetActive ( false );
 		MovePitcture.SetActive ( false );
@@ -85,7 +85,7 @@ public class DialogueScript : MonoBehaviour {
 		//MOVEセリフスタート
 		if (course_Dialogue.MoveFlag == true ) {
             Time.timeScale = 0; //ゲーム時間止める
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
+			Player.GetComponent<plyaer>( ).stop( );//キャラ止める
 			DialogueBox.SetActive(true);
 			foreach (string sentence in dialogue.sentences) {
 				sentences.Enqueue(sentence);
@@ -96,7 +96,7 @@ public class DialogueScript : MonoBehaviour {
 		if ( course_Dialogue.HealFlag == true ) {
 			
 			Time.timeScale = 0; //ゲーム時間止める
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
+			Player.GetComponent<plyaer>( ).stop( );//キャラ止める
 			DialogueBox.SetActive(true);
 			foreach (string Healsentence in dialogue.Healsentences) {
 				Healsentences.Enqueue(Healsentence);
@@ -106,7 +106,7 @@ public class DialogueScript : MonoBehaviour {
 		//Attackセリフスタート
 		if ( course_Dialogue.AttackFlag == true ) {
 			Time.timeScale = 0;
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
+			Player.GetComponent<plyaer>( ).stop( );//キャラ止める
 			DialogueBox.SetActive(true);
 			foreach (string Attacksentence in dialogue.Attacksentences) {
 				Attacksentences.Enqueue(Attacksentence);
@@ -116,7 +116,7 @@ public class DialogueScript : MonoBehaviour {
 		//ENDセリフスタート
 		if (course_Dialogue.EndFlag == true) {
 			DialogueBox.SetActive(true);
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0f, 0f );
+			Player.GetComponent<plyaer>( ).stop( );//キャラ止める
 			foreach (string Endsentence in dialogue.Endsentences) {
 				Endsentences.Enqueue(Endsentence);
 			}
@@ -166,10 +166,11 @@ public class DialogueScript : MonoBehaviour {
 			dialogueText.text = Healsentence;
 			//セリフの何番目に執行する
 			if ( Healsentences.Count == HpItemTargetDialogueStart ) {
-				Player.GetComponent<PlayerController>().Hp -= 40;
+				Player.GetComponent<plyaer>().damage( 40 );
 				Instantiate( HpItem, CourseHPItemPosition, new Quaternion( 0, 0, 0, 0 ) );
 				HpTarget.transform.position = CourseHPItemPosition;
 				HpTarget.SetActive ( true );
+				Debug.Log ("damage");
 			}
 		}
 
@@ -204,7 +205,6 @@ public class DialogueScript : MonoBehaviour {
 
 		if ( course_Dialogue.MoveFlag == true ) {
 			Time.timeScale = 1; //ゲーム時間スタート
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0.05f, 0.05f );
 			course_Dialogue.MoveingTime = true;
 			DialogueBox.SetActive(false);
 			MovePitcture.SetActive ( false );
@@ -212,7 +212,6 @@ public class DialogueScript : MonoBehaviour {
 
 		if (course_Dialogue.HealFlag == true ) {
 			Time.timeScale = 1;//ゲーム時間スタート
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0.05f, 0.05f );
 			course_Dialogue.HealTime = true;
 			DialogueBox.SetActive(false);
 			HpTarget.SetActive ( false );
@@ -220,7 +219,6 @@ public class DialogueScript : MonoBehaviour {
 
 		if (course_Dialogue.AttackFlag == true ) {
 			Time.timeScale = 1;//ゲーム時間スタート
-            Player.GetComponent<PlayerController>( ).Speed = new Vector2( 0.05f, 0.05f );
 			course_Dialogue.AttackTime = true;
 			DialogueBox.SetActive(false);
 			EnemyTarget.SetActive ( false );

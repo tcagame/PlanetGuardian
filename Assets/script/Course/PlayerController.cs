@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
     public Vector2 Speed = new Vector2( 0.05f, 0.05f );
-    public GameObject HpBar; //HPGUI Controller
+	public Slider HpBar; //HPGUI Controller
 
     public float MaxHP;
     public float Hp;
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start( ) {
 
-		this.HpBar = GameObject.FindGameObjectWithTag( "HP" );
+		//this.HpBar = GameObject.FindGameObjectWithTag( "HP" );
 
         Time.timeScale = 1f;
 
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 	void HpBarController( ) {
 		
 
-        HpBar.transform.localPosition = new Vector3( ( -500 + 500 * ( Hp / MaxHP ) ), 0.0f, 0.0f );
+		HpBar.value = Hp;
 
 		if ( Hp >= MaxHP ) {
 

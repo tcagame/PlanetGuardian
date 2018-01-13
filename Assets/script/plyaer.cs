@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class plyaer : MonoBehaviour {
@@ -9,6 +10,7 @@ public class plyaer : MonoBehaviour {
 	[SerializeField] private float MAX_SPEED = 15f;
 	[SerializeField] private double MIN_SPEED_RATIO = 0.35;
 	[SerializeField] private int MAX_HP = 150;
+	public int MAXHP {get{ return MAX_HP; }}
 	[SerializeField] private Slider HpBar = null; //HPGUI Controller
 
 	[SerializeField] private GameObject _damage = null;
@@ -22,6 +24,7 @@ public class plyaer : MonoBehaviour {
 	private float _hp;
 	private float _time;
 
+	public bool CourseFlag = true;
     // Use this for initialization
     void Start () {
 		_rb = GetComponent<Rigidbody2D> ();
@@ -107,6 +110,9 @@ public class plyaer : MonoBehaviour {
 	}
 
 	void updateHp( ) {
+		if (SceneManager.GetActiveScene ().name != "character") {
+			return;
+		}
 		_time += Time.deltaTime;
 		if (_time > 1) {
 			_hp--;
@@ -157,5 +163,18 @@ public class plyaer : MonoBehaviour {
 
 	public bool isDead( ) {
 		return _hp <= 0;
+	}
+
+	void OnCollisionEnter2D( Collision2D collision ) {
+
+		if ( collision.gameObject.CompareTag( "enemy" ) ) {
+			collision.collider.enabled = false;
+			CourseFlag = false;
+		}
+
+	}
+
+	public void stop( ) {
+		_vec = Vector2.zero;
 	}
 }
