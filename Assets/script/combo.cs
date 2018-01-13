@@ -39,8 +39,11 @@ public class combo : MonoBehaviour {
 	}
 
 	public void addCombo( ) { // エネミーのスクリプトから呼ばれる
-		_combo++;
-		_time = 0.0f;
+		plyaer player = GameObject.Find( "player" ).GetComponent<plyaer>();
+		if ( !player.isDead( ) ) {
+			_combo++;
+			_time = 0.0f;
+		}
 	}
 
 	public void expireCombo( ) { // プレイヤーのスクリプトから呼ばれる

@@ -91,6 +91,7 @@
      <Compile Include="Assets\script\select\closeWindow.cs" />
      <Compile Include="Assets\script\select\selectStage.cs" />
      <Compile Include="Assets\script\select\setSelectStage.cs" />
+     <Compile Include="Assets\script\select\startGame.cs" />
      <Compile Include="Assets\script\sound.cs" />
      <Compile Include="Assets\script\sound\BGM_Volume_Change.cs" />
      <Compile Include="Assets\script\sound\SE_Volume_Change.cs" />

@@ -35,14 +35,14 @@ public class selectStage : MonoBehaviour {
 	}
 
 	public void setStage( STAGE stage ) {
-		if ( transform.GetChild( 0 ).gameObject.active == false ) {
+		if ( transform.GetChild( 0 ).gameObject.activeSelf == false ) {
 			_stage = stage;
 			transform.GetChild( 0 ).gameObject.SetActive( true );
 			transform.FindChild( STAGE_NAME[ ( int )_stage ] ).gameObject.SetActive( true );
 		}
 	}
 
-	void startGame( ) {
+	public void startGame( ) {
 		Time.timeScale = 0;
 		Destroy( GameObject.Find("BGM_Title(Clone)") );
 		SceneManager.LoadScene( "character" );
