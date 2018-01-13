@@ -47,5 +47,14 @@ public class selectStage : MonoBehaviour {
 		Destroy( GameObject.Find("BGM_Title(Clone)") );
 		SceneManager.LoadScene( "character" );
 		SceneManager.LoadScene( STAGE_NAME[(int)_stage], LoadSceneMode.Additive );
+		transform.DetachChildren( );
+		DontDestroyOnLoad( this );
+	}
+
+	public void retry( ) {
+		Time.timeScale = 0;
+		SceneManager.LoadScene( "character" );
+		SceneManager.LoadScene( STAGE_NAME[(int)_stage], LoadSceneMode.Additive );
+		print( "retry" );
 	}
 }
