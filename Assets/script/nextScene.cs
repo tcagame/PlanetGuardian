@@ -8,15 +8,8 @@ public class nextScene : MonoBehaviour {
 
 	[SerializeField] private GameObject _callibration = null;
 
-	private string stage_name;
-	private bool load_stage = false;
-
-    private GameObject Title_BGM;
 	// Use this for initialization
 	void Start () {
-		load_stage = false;
-
-        Title_BGM = GameObject.Find("BGM_Title(Clone)");
     }
 	
 	// Update is called once per frame
@@ -34,12 +27,7 @@ public class nextScene : MonoBehaviour {
 			}
 			break;
 		case "select":
-			if (load_stage) {
-				Time.timeScale = 0;
-            	Destroy(Title_BGM);
-                SceneManager.LoadScene ("character");
-				SceneManager.LoadScene (stage_name, LoadSceneMode.Additive);
-			}
+			//script "selectStage"で行う
 			break;
 		case "character":
 			bool game_over = true;
@@ -72,15 +60,5 @@ public class nextScene : MonoBehaviour {
 
 	void tapSE( ) {
 		GameObject.Find ("sound").GetComponent<sound> ().playSE ("tap");
-	}
-
-	public void setStage1( ) {
-		stage_name = "stage1";
-		load_stage = true;
-	}
-
-	public void setStage2( ) {
-		stage_name = "stage2";
-		load_stage = true;
 	}
 }
