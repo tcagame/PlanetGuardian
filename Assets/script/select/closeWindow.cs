@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class closeWindow : MonoBehaviour {
 	void OnMouseDown( ) {
-		
+		GameObject.Find( "window" ).GetComponent<selectStage>().close( );
 	}
 }
