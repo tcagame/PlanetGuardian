@@ -44,7 +44,7 @@ public class DialogueScript : MonoBehaviour {
 	[SerializeField]
 	int TropTargetDialogueStart = 0;
 
-	GameObject Player;
+	GameObject Player  = null;
 
 	private Queue<string> sentences;
 	private Queue<string> Healsentences;
@@ -166,11 +166,12 @@ public class DialogueScript : MonoBehaviour {
 			dialogueText.text = Healsentence;
 			//セリフの何番目に執行する
 			if ( Healsentences.Count == HpItemTargetDialogueStart ) {
-				Player.GetComponent<plyaer>().damage( 40 );
+				plyaer player = Player.GetComponent<plyaer> ();
+				print (player == null);
+				player.damage( 40 );
 				Instantiate( HpItem, CourseHPItemPosition, new Quaternion( 0, 0, 0, 0 ) );
 				HpTarget.transform.position = CourseHPItemPosition;
 				HpTarget.SetActive ( true );
-				Debug.Log ("damage");
 			}
 		}
 

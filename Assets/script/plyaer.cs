@@ -10,7 +10,7 @@ public class plyaer : MonoBehaviour {
 	[SerializeField] private float MAX_SPEED = 15f;
 	[SerializeField] private double MIN_SPEED_RATIO = 0.35;
 	[SerializeField] private int MAX_HP = 150;
-	public int MAXHP {get{ return MAX_HP; }}
+	//public int MAXHP {get{ return MAX_HP; }}
 	[SerializeField] private Slider HpBar = null; //HPGUI Controller
 
 	[SerializeField] private GameObject _damage = null;
@@ -22,6 +22,7 @@ public class plyaer : MonoBehaviour {
 	private Vector2 _vec;
 	private GameObject _offset = null;
 	private float _hp;
+	public float MAXHP {get{ return _hp; }}
 	private float _time;
 
 	public bool CourseFlag = true;
@@ -129,6 +130,7 @@ public class plyaer : MonoBehaviour {
 		_sound.GetComponent<sound> ().playSE( "player_damage" );
 
 		_hp -= damage;
+		Debug.Log ( _hp );
 		GameObject.Find( "combo" ).GetComponent<combo> ().expireCombo();
 		setEffect( Instantiate( _damage, transform.position, Quaternion.identity ) );
 	}
