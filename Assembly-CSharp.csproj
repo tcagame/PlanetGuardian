@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E7600C5C-4584-6AA2-0EBA-3AC72C0BB94E}</ProjectGuid>
+    <ProjectGuid>{47B44CB4-D8B2-83E9-1648-CF40E71356DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -69,7 +69,8 @@
      <Compile Include="Assets\script\Xml\XmlLevelEditor.cs" />
      <Compile Include="Assets\script\alfa.cs" />
      <Compile Include="Assets\script\callibration.cs" />
-     <Compile Include="Assets\script\combo.cs" />
+     <Compile Include="Assets\script\combo\combo.cs" />
+     <Compile Include="Assets\script\combo\comboData.cs" />
      <Compile Include="Assets\script\deleteEffect.cs" />
      <Compile Include="Assets\script\drawNumSprite.cs" />
      <Compile Include="Assets\script\drawResult.cs" />
@@ -92,6 +93,8 @@
      <Compile Include="Assets\script\select\closeWindow.cs" />
      <Compile Include="Assets\script\select\selectStage.cs" />
      <Compile Include="Assets\script\select\setSelectStage.cs" />
+     <Compile Include="Assets\script\select\setting.cs" />
+     <Compile Include="Assets\script\select\settingWindow.cs" />
      <Compile Include="Assets\script\select\startGame.cs" />
      <Compile Include="Assets\script\sound.cs" />
      <Compile Include="Assets\script\sound\BGM_Volume_Change.cs" />

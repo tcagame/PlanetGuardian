@@ -49,12 +49,10 @@ public class selectStage : MonoBehaviour {
 		SceneManager.LoadScene( STAGE_NAME[(int)_stage], LoadSceneMode.Additive );
 		transform.DetachChildren( );
 		DontDestroyOnLoad( this );
+		gameObject.name = "stage_info";
 	}
 
-	public void retry( ) {
-		Time.timeScale = 0;
-		SceneManager.LoadScene( "character" );
-		SceneManager.LoadScene( STAGE_NAME[(int)_stage], LoadSceneMode.Additive );
-		print( "retry" );
+	public string playStage( ) {
+		return STAGE_NAME[(int)_stage];
 	}
 }

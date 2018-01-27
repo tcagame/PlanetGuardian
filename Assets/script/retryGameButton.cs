@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class retryGameButton : MonoBehaviour {
 	void OnMouseDown( ) {
-		GameObject select = GameObject.Find( "window" );
-		select.GetComponent<selectStage>( ).retry( );
+		selectStage stage = GameObject.Find( "stage_info" ).GetComponent<selectStage>( );
+		Time.timeScale = 0;
+		SceneManager.LoadScene( "character" );
+		SceneManager.LoadScene( stage.playStage(), LoadSceneMode.Additive );
 	}
 }
