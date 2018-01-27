@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class toSelectButton : MonoBehaviour {
 	void OnMouseDown( ) {
-		Destroy( GameObject.Find( "window" ) );
-		SceneManager.LoadScene ("select");
-		GameObject.Find ("sound").GetComponent<sound> ().playSE ("tap");
+		Destroy( GameObject.Find( "stage_info" ) );
+		//SceneManager.LoadScene ("title");
+		//we are 展示用
+		SceneManager.LoadScene ("title");
 	}
 }

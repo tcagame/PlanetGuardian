@@ -41,7 +41,8 @@ public class nextScene : MonoBehaviour {
 				}
 			}
 			if ( stage_clear ) {
-				GameObject.Find( "combo" ).GetComponent< combo >( ).save( );
+					//debug
+				GameObject.Find( "combo" ).GetComponent< combo >( ).save( 1 );
 				SceneManager.LoadScene ("clear");
 			}
 			if ( game_over ) {
@@ -51,7 +52,7 @@ public class nextScene : MonoBehaviour {
 		case "clear":
 		case "gameover":
 			if (Input.GetMouseButton (0)) {
-            	SceneManager.LoadScene ("title");
+            //	SceneManager.LoadScene ("title");
 				tapSE ();
 			}
 			break;

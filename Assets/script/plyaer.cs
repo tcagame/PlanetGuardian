@@ -130,7 +130,6 @@ public class plyaer : MonoBehaviour {
 		_sound.GetComponent<sound> ().playSE( "player_damage" );
 
 		_hp -= damage;
-		Debug.Log ( _hp );
 		GameObject.Find( "combo" ).GetComponent<combo> ().expireCombo();
 		setEffect( Instantiate( _damage, transform.position, Quaternion.identity ) );
 	}

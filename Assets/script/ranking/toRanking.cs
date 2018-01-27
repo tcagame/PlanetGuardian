@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class toRanking : MonoBehaviour {
 
+	[SerializeField] GameObject _setting_window = null;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,7 +21,7 @@ public class toRanking : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "ranking") {
 			SceneManager.LoadScene ("select");
 		}
-		if (SceneManager.GetActiveScene ().name == "select") {
+		if (SceneManager.GetActiveScene ().name == "select" && !_setting_window.activeSelf) {
 			SceneManager.LoadScene ("ranking");
 		}
 	}

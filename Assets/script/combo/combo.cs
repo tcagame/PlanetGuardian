@@ -52,39 +52,35 @@ public class combo : MonoBehaviour {
 		_time = 0.0f;
 	}
 
-	public void save( ) {
+	public void save( int stage_num ) {
 		updateMaxCombo( );
-		string PATH = Application.persistentDataPath + "/combo";
+		comboData mgr = new comboData( );
+		string PATH = mgr.getPath( stage_num );
 		if ( !File.Exists( PATH ) ) {
-			resetBinary( PATH );
+			Debug.Log("not found combo data file");
+			return;
 		}
-		const int MAX_DATA = 7;
 		byte [] data = File.ReadAllBytes( PATH );
-		if (data.Length != MAX_DATA) {
-			resetBinary (PATH);
+		if (data.Length != mgr.MAX_DATA) {
+			Debug.Log("not found combo data file");
+			return;
 		}
 		data [0] = 0;
 		data[ 1 ] = (byte)_max_combo;
-		if ( data[ MAX_DATA - 1 ] < data[ 1 ] ) {
+		if ( data[ mgr.MAX_DATA - 1 ] < data[ 1 ] ) {
 			data [0] = 1;
-			data[ MAX_DATA - 1 ] = data[ 1 ];
-			const int END = 6;
-			for ( int i = 0; i < MAX_DATA - 2; i++ ) {
-				if ( data[ END - i ] < data[ END - ( i + 1 ) ] ) {
+			data[ mgr.MAX_DATA - 1 ] = data[ 1 ];
+			for ( int i = 0; i < mgr.MAX_DATA - 2; i++ ) {
+				int back_idx = mgr.MAX_DATA - i - 1;
+				int front_idx = mgr.MAX_DATA - (i + 1) - 1;
+				if ( data[ back_idx ] < data[ front_idx ] ) {
 					break;
 				}
-				byte tmp = data[ END - ( i + 1 ) ];
-				data[ END - ( i + 1 ) ] = data[ END - i ];
-				data[ END - i ] = tmp;
+				byte tmp = data[ front_idx ];
+				data[ front_idx ] = data[ back_idx ];
+				data[ back_idx ] = tmp;
 			}
 		}
 		File.WriteAllBytes( PATH, data );
-	}
-
-	void resetBinary( string path ) {
-		byte combo = 0;
-		byte new_record = 0;
-		byte [] data = { new_record, combo, combo, combo, combo, combo, combo };
-		File.WriteAllBytes( path, data );
 	}
 }
