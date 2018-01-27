@@ -8,13 +8,21 @@ public class nextScene : MonoBehaviour {
 
 	[SerializeField] private GameObject _callibration = null;
 
+	float _time;
+
 	// Use this for initialization
 	void Start () {
+		_time = 0.0f;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+		if (_time < 2.0f)
+		{
+			_time = Time.deltaTime;
+			return;
+		}
         switch ( SceneManager.GetActiveScene().name ) {
 		case "initialize":
 			DontDestroyOnLoad (_callibration);
