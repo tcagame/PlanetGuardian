@@ -6,6 +6,8 @@ using System.IO;
 
 public class comboData : MonoBehaviour {
 
+	const string directory = "/combo_stage";
+
 	const int STAGE_NUM = 2;
 	public int MAX_DATA { get{ return 7; } }
 
@@ -17,7 +19,8 @@ public class comboData : MonoBehaviour {
 	}
 
 	void initialization( ) {
-		string PATH = Application.persistentDataPath + "/combo/stage";
+		print("init");
+		string PATH = Application.persistentDataPath + directory;
 		for (int i = 0; i < STAGE_NUM; i++){
 			string file = PATH + i.ToString();
 			if ( File.Exists( file ) ) {
@@ -28,7 +31,8 @@ public class comboData : MonoBehaviour {
 			
 	void create( string path ) {
 		// new_record_flag this_game rank1 rank2 rank3 rank4 rank5
-		byte[] datas = { 0, 0, 0, 0, 0, 0, 0 };
+		byte data = 0;
+		byte[] datas = { data, data, data, data, data, data, data };
 		File.WriteAllBytes(path, datas);
 	}
 
@@ -36,7 +40,7 @@ public class comboData : MonoBehaviour {
 		if (stage_num >= STAGE_NUM) {
 			return "";
 		}
-		string PATH = Application.persistentDataPath + "/combo/stage" + stage_num.ToString();
+		string PATH = Application.persistentDataPath + directory + stage_num.ToString();
 		return PATH;
 	}
 }
