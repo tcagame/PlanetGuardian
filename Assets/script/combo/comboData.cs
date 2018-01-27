@@ -19,11 +19,10 @@ public class comboData : MonoBehaviour {
 	}
 
 	void initialization( ) {
-		print("init");
 		string PATH = Application.persistentDataPath + directory;
 		for (int i = 0; i < STAGE_NUM; i++){
 			string file = PATH + i.ToString();
-			if ( File.Exists( file ) ) {
+			if ( !File.Exists( file ) ) {
 				create( file );
 			}
 		}
