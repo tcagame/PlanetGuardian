@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CountDown : MonoBehaviour {
 	// カウントダウン時間
-	const int FPS = 60;
-	float _count_down = 4.0f * FPS;
+	const int FPS = 30;
+	int _count_down = 4 * FPS;
 
 	// スプライト表示用オブジェクト(プレハブ)
 	[SerializeField] private GameObject showSprite = null;
@@ -87,8 +87,8 @@ public class CountDown : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
-		if ((int)_count_down != Value) {
-			Value = (int)(_count_down / FPS);
+		if ( ( _count_down / FPS ) != Value) {
+			Value =_count_down / FPS;
 		}
 	}
 }
