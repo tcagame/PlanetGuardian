@@ -18,17 +18,16 @@ public class nextScene : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (_time < 2.0f)
-		{
-			_time = Time.deltaTime;
-			return;
-		}
         switch ( SceneManager.GetActiveScene().name ) {
 		case "initialize":
 			DontDestroyOnLoad (_callibration);
 			SceneManager.LoadScene ("title");
 			break;
 		case "title":
+				if (_time < 2.0f){
+					_time += Time.deltaTime;
+					return;
+				}
 			if (Input.GetMouseButton (0)) {
             	SceneManager.LoadScene ("select");
 				tapSE ();
