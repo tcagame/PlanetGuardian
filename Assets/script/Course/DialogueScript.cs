@@ -190,6 +190,7 @@ public class DialogueScript : MonoBehaviour {
 
 		//Endセリフ
 		if ( course_Dialogue.EndFlag == true ) {
+			Player.transform.position = new Vector2 ( -0.09f, -2f );
 			string Endsentence = Endsentences.Dequeue();
 			dialogueText.text = Endsentence;
 			//セリフの何番目に執行する
