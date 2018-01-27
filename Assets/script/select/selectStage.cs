@@ -13,7 +13,7 @@ public class selectStage : MonoBehaviour {
 	};
 	STAGE _stage;
 	string[ ] STAGE_NAME = {
-		"tutorial",
+		"Course",
 		"stage1",
 		"stage2"
 	};
@@ -45,8 +45,12 @@ public class selectStage : MonoBehaviour {
 	public void startGame( ) {
 		Time.timeScale = 0;
 		Destroy( GameObject.Find("BGM_Title(Clone)") );
-		SceneManager.LoadScene( "character" );
-		SceneManager.LoadScene( STAGE_NAME[(int)_stage], LoadSceneMode.Additive );
+		if (_stage == STAGE.STAGE_TUTORIAL) {
+			SceneManager.LoadScene ("Course");
+		} else {
+			SceneManager.LoadScene ("character");
+			SceneManager.LoadScene (STAGE_NAME [(int)_stage], LoadSceneMode.Additive);
+		}
 		transform.DetachChildren( );
 		DontDestroyOnLoad( this );
 		gameObject.name = "stage_info";
