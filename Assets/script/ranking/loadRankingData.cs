@@ -16,8 +16,8 @@ public class loadRankingData : MonoBehaviour {
 	}
 
 	public void loadData( int stage_num ) {
-		string PATH = Application.persistentDataPath + "/combo";
-		const int MAX_DATA = 7;
+		comboData combo = new comboData( );
+		string PATH = combo.getPath( stage_num );
 		byte [] data = File.ReadAllBytes( PATH );
 
 		for ( int i = 0; i < 5; i++ ) {

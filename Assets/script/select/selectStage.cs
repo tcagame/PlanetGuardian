@@ -55,4 +55,8 @@ public class selectStage : MonoBehaviour {
 	public string playStage( ) {
 		return STAGE_NAME[(int)_stage];
 	}
+
+	public int getStageNum( ) {
+		return (int)_stage;
+	}
 }
