@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class setClearBG : MonoBehaviour {
 
-	[SerializeField] GameObject[] _back;
+	[SerializeField] GameObject[] _back = null;
 
 	// Use this for initialization
 	void Start () {

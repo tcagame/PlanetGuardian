@@ -57,7 +57,7 @@ public class combo : MonoBehaviour {
 		comboData mgr = new comboData( );
 		string PATH = mgr.getPath( stage_num );
 		if ( !File.Exists( PATH ) ) {
-			Debug.Log("not found combo data file");
+			Debug.Log("not found combo data file\nPATH:" + PATH);
 			return;
 		}
 		byte [] data = File.ReadAllBytes( PATH );

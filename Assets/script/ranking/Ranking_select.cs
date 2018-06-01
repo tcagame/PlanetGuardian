@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Ranking_select : MonoBehaviour {
 
-	[SerializeField] private GameObject window;
-	[SerializeField] private GameObject stages;
+	[SerializeField] private GameObject window = null;
+	[SerializeField] private GameObject stages = null;
 
 	[SerializeField] private int stage_num = 0;
 

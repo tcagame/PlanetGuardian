@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CloseHighScore : MonoBehaviour {
-	[SerializeField] private GameObject window;
-	[SerializeField] private GameObject stages;
+	[SerializeField] private GameObject window = null;
+	[SerializeField] private GameObject stages = null;
 	// Use this for initialization
 	void Start () {
 		

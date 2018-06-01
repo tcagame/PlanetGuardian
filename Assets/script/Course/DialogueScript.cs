@@ -7,40 +7,40 @@ using UnityEngine.UI;
 public class DialogueScript : MonoBehaviour {
 
 	[SerializeField]
-	GameObject DialogueBox; //対話BOX
-    [SerializeField] Text nameText; //ＮＰＣ NAME
+	GameObject DialogueBox = null; //対話BOX
+    [SerializeField] Text nameText = null; //ＮＰＣ NAME
     public Text NameTextGet { get { return nameText; } }
-    [SerializeField] Text dialogueText; //ＮＰＣ スクリプト
+    [SerializeField] Text dialogueText = null; //ＮＰＣ スクリプト
     public Text DialogueTextGet { get { return dialogueText; } }
 
 	//EVENT物件何番目に執行する
 	//移動ーEVENT
 	[SerializeField]
-	GameObject MovePitcture;
+	GameObject MovePitcture = null;
 	[SerializeField]
 	int MovePitctureDialogueStart = 0;
 
 	//HPーEVENT
 	[SerializeField]
-	GameObject HpItem;
+	GameObject HpItem = null;
 	[SerializeField]
-	GameObject HpTarget;
+	GameObject HpTarget = null;
 	[SerializeField]
 	int HpItemTargetDialogueStart = 0;
 
 	//敵ーEVENT
 	[SerializeField]
-	GameObject CourseEnemy;
+	GameObject CourseEnemy = null;
 	[SerializeField]
-	GameObject EnemyTarget;
+	GameObject EnemyTarget = null;
 	[SerializeField]
 	int EnmeyTargetDialogueStart = 0;
 
 	//罠ーEVENT
 	[SerializeField]
-	GameObject TropItem;
+	GameObject TropItem = null;
 	[SerializeField]
-	GameObject TropTarget;
+	GameObject TropTarget = null;
 	[SerializeField]
 	int TropTargetDialogueStart = 0;
 
@@ -73,6 +73,10 @@ public class DialogueScript : MonoBehaviour {
 		TropTarget.SetActive ( false );
 		HpTarget.SetActive ( false );
 
+	}
+
+	void OnMouseDown( ) {
+		DisplayNextSentence( );
 	}
 
 	public void StartDialogue( Dialogue dialogue ) {

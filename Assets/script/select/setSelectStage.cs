@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class setSelectStage : MonoBehaviour {
 
-	[SerializeField] selectStage.STAGE _stage;
+	[SerializeField] selectStage.STAGE _stage = selectStage.STAGE.STAGE_TUTORIAL;
 	[SerializeField] GameObject _setting_window = null;
 
 	void OnMouseDown( ) {

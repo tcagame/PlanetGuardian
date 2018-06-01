@@ -16,11 +16,11 @@ public class drawResult : MonoBehaviour {
 			GameObject.Find ("new_record").SetActive (true);
 			GameObject.Find ("sound").GetComponent<sound> ().playSE ("new_record");
 		}
-		transform.FindChild( "this_game_result" ).GetComponent< drawNumSprite > ( ).Value = datas[ 1 ];
+		transform.Find( "this_game_result" ).GetComponent< drawNumSprite > ( ).Value = datas[ 1 ];
 		for ( int i = 0; i < 5; i++ ) {
-			Transform child = transform.FindChild( "ranking" );
+			Transform child = transform.Find( "ranking" );
 			string obj_name = "ranking" + i;
-			child.FindChild( obj_name ).GetComponent< drawNumSprite > ( ).Value = datas[ i + 2 ];
+			child.Find( obj_name ).GetComponent< drawNumSprite > ( ).Value = datas[ i + 2 ];
 		}
 	}
 	

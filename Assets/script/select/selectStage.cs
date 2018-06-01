@@ -17,9 +17,7 @@ public class selectStage : MonoBehaviour {
 		"stage1",
 		"stage2"
 	};
-
-	GameObject a;
-
+	
 	void Start () {
 	}
 	
@@ -38,7 +36,7 @@ public class selectStage : MonoBehaviour {
 		if ( transform.GetChild( 0 ).gameObject.activeSelf == false ) {
 			_stage = stage;
 			transform.GetChild( 0 ).gameObject.SetActive( true );
-			transform.FindChild( STAGE_NAME[ ( int )_stage ] ).gameObject.SetActive( true );
+			transform.Find( STAGE_NAME[ ( int )_stage ] ).gameObject.SetActive( true );
 		}
 	}
 

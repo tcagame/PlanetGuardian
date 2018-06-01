@@ -15,9 +15,9 @@ public class menuButton : MonoBehaviour {
 	void Awake () {
 		_button = GetComponent<Button> ();
 		GameObject canvas = GameObject.Find ("Canvas");
-		_window = canvas.transform.FindChild ("window").gameObject;
-		_game_menu = canvas.transform.FindChild ("GameMenu").gameObject;
-		_sound_menu = canvas.transform.FindChild ("SoundMenu").gameObject;
+		_window = canvas.transform.Find ("window").gameObject;
+		_game_menu = canvas.transform.Find ("GameMenu").gameObject;
+		_sound_menu = canvas.transform.Find ("SoundMenu").gameObject;
 	}
 		
 	void Start () {

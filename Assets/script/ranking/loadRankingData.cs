@@ -22,7 +22,7 @@ public class loadRankingData : MonoBehaviour {
 
 		for ( int i = 0; i < 5; i++ ) {
 			string obj_name = "ranking" + (i + 1);
-			transform.FindChild( obj_name ).GetComponent< drawNumSprite > ( ).Value = data [i + 2];
+			transform.Find( obj_name ).GetComponent< drawNumSprite > ( ).Value = data [i + 2];
 		}
 	}
 }
